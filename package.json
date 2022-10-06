@@ -1,0 +1,58 @@
+{
+	"name": "contentful-starter-gatsby-blog",
+	"description": "Contentful Gatsby Starter Blog",
+	"private": true,
+	"version": "0.0.1",
+	"author": "Contentful <opensource@contentful.com>",
+	"bugs": {
+		"url": "https://github.com/contentful/starter-gatsby-blog/issues"
+	},
+	"dependencies": {
+		"@contentful/rich-text-plain-text-renderer": "^15.12.1",
+		"gatsby": "^4.24.1",
+		"gatsby-plugin-image": "^2.23.1",
+		"gatsby-plugin-react-helmet": "^5.0.0",
+		"gatsby-plugin-sass": "^5.8.0",
+		"gatsby-plugin-sharp": "^4.23.1",
+		"gatsby-source-contentful": "^7.21.1",
+		"gatsby-transformer-sharp": "^4.23.1",
+		"lodash": "^4.17.21",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-helmet": "^6.1.0",
+		"react-icons": "^4.4.0",
+		"reading-time": "^2.0.0-1",
+		"sass": "^1.49.9"
+	},
+	"devDependencies": {
+		"autoprefixer": "^10.4.12",
+		"contentful-import": "^8.3.9",
+		"gatsby-plugin-postcss": "^5.24.0",
+		"gatsby-provision-contentful": "0.0.3",
+		"netlify-cli": "^10.0.0",
+		"postcss": "^8.4.17",
+		"tailwindcss": "^3.1.8"
+	},
+	"engines": {
+		"node": ">=14.0.0"
+	},
+	"homepage": "https://github.com/contentful/starter-gatsby-blog#readme",
+	"keywords": [
+		"gatsby",
+		"contentful",
+		"starter"
+	],
+	"license": "MIT",
+	"main": "n/a",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/contentful/starter-gatsby-blog.git"
+	},
+	"scripts": {
+		"dev": "gatsby develop",
+		"build": "gatsby build",
+		"heroku-postbuild": "gatsby build",
+		"serve": "gatsby serve",
+		"gatsby-provision": "gatsby-provision-contentful --contentful-data-path='./contentful/export.json' --space-id=$CONTENTFUL_SPACE_ID --management-token=$CONTENTFUL_MANAGEMENT_TOKEN"
+	}
+}
