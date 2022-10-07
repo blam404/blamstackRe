@@ -38,6 +38,7 @@ export default function About() {
 						<StaticImage
 							src="../../images/profile.jpg"
 							className="rounded-full overflow-hidden m-2"
+							alt="profile picture of ben lam"
 						/>
 					</div>
 				</div>

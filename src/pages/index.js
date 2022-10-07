@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import get from "lodash/get";
 
 import About from "../components/home/about";
 import Blog from "../components/home/blog";
@@ -55,7 +54,7 @@ export default function HomePage(props) {
 				{/* PROJECTS */}
 				<div
 					id="projects"
-					className="w-full min-h-screen flex justify-center items-center xl:w-4/5"
+					className="w-full min-h-screen flex justify-center items-center xl:w-4/5 pt-20"
 				>
 					<Projects
 						featuredProjects={featuredProjects}
@@ -65,7 +64,7 @@ export default function HomePage(props) {
 				{/* BLOG */}
 				<div
 					id="blog"
-					className="w-full min-h-screen flex justify-center items-center xl:w-4/5"
+					className="w-full min-h-screen flex justify-center items-center xl:w-4/5 pt-20"
 				>
 					<Blog blog={blog} />
 				</div>
@@ -83,7 +82,7 @@ export const pageQuery = graphql`
 			sort: { fields: [publishedDate, createdAt], order: DESC }
 		) {
 			nodes {
-				id
+				id: contentful_id
 				title
 				createdAt(formatString: "MMMM D, YYYY")
 				publishedDate(formatString: "MMMM D, YYYY")
@@ -94,7 +93,7 @@ export const pageQuery = graphql`
 					}
 				}
 				coverPhoto {
-					url
+					description
 					gatsbyImageData(
 						layout: FULL_WIDTH
 						placeholder: BLURRED
@@ -110,7 +109,7 @@ export const pageQuery = graphql`
 			sort: { fields: [publishedDate, createdAt], order: DESC }
 		) {
 			nodes {
-				id
+				id: contentful_id
 				title
 				createdAt(formatString: "MMMM D, YYYY")
 				publishedDate(formatString: "MMMM D, YYYY")
@@ -121,6 +120,7 @@ export const pageQuery = graphql`
 					}
 				}
 				coverPhoto {
+					description
 					gatsbyImageData(
 						layout: FULL_WIDTH
 						placeholder: BLURRED
@@ -136,7 +136,7 @@ export const pageQuery = graphql`
 			sort: { fields: [publishedDate, createdAt], order: DESC }
 		) {
 			nodes {
-				id
+				id: contentful_id
 				title
 				createdAt(formatString: "MMMM D, YYYY")
 				publishedDate(formatString: "MMMM D, YYYY")
@@ -146,15 +146,13 @@ export const pageQuery = graphql`
 					}
 				}
 				coverPhoto {
+					description
 					gatsbyImageData(
 						layout: FULL_WIDTH
 						placeholder: BLURRED
 						width: 600
 						resizingBehavior: FILL
 					)
-				}
-				body {
-					raw
 				}
 			}
 		}

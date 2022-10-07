@@ -16,9 +16,14 @@ html {
 
 body {
 	font-family: "Open Sans", sans-serif;
+	@apply text-slate-800
 }
 p {
 	@apply mb-4;
+}
+
+a:not(nav) {
+	@apply text-slate-400 underline
 }
 
 ol {
@@ -26,10 +31,10 @@ ol {
 }
 
 li {
-	@apply pl-6 relative mb-2;
+	@apply ml-6 pl-6 relative mb-2;
 	
 	&:before {
-		content: "> ";
+		content: "- ";
 		@apply absolute left-0;
 	}
 }

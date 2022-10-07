@@ -1,5 +1,6 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 export default function Blog({ blog }) {
 	return (
@@ -16,14 +17,21 @@ export default function Blog({ blog }) {
 					return (
 						<div key={post.id} className="w-1/3 px-1">
 							<div className="max-h-44 overflow-y-hidden">
-								<GatsbyImage
-									image={image}
-									alt="post cover photo"
-								/>
+								<Link to={`/blog/${post.id}`}>
+									<GatsbyImage
+										image={image}
+										alt={post.coverPhoto.description}
+									/>
+								</Link>
 							</div>
 							<div>
 								<h3 className="text-lg">
-									<strong>{post.title}</strong>
+									<Link
+										to={`/blog/${post.id}`}
+										className="text-slate-800 no-underline"
+									>
+										<strong>{post.title}</strong>
+									</Link>
 								</h3>
 								<p className="text-slate-400 mb-0">
 									{post.publishedDate || post.createdAt}

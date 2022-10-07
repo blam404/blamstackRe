@@ -1,8 +1,8 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 export default function Projects({ featuredProjects, projects }) {
-	console.log("featuredProjects: ", projects);
 	return (
 		<div className="w-4/5">
 			<div className="flex items center text-2xl mb-6">
@@ -31,7 +31,12 @@ export default function Projects({ featuredProjects, projects }) {
 								}`}
 							>
 								<h3 className="text-xl">
-									<strong>{project.title}</strong>
+									<Link
+										to={`/project/${project.id}`}
+										className="text-slate-800 no-underline"
+									>
+										<strong>{project.title}</strong>
+									</Link>
 								</h3>
 								<p className="text-slate-400">
 									{project.publishedDate || project.createdAt}
@@ -44,8 +49,11 @@ export default function Projects({ featuredProjects, projects }) {
 								<div
 									className={`flex mt-4 ${stackMargin} ${stackJustify}`}
 								>
-									{project.stack.map((item) => (
-										<div className="text-sm text-slate-400 mx-2">
+									{project.stack.map((item, index) => (
+										<div
+											key={`featured stack item ${index}`}
+											className="text-sm text-slate-400 mx-2"
+										>
 											{item}
 										</div>
 									))}
@@ -56,14 +64,21 @@ export default function Projects({ featuredProjects, projects }) {
 									index % 2 === 1 ? "order-2" : "order-1"
 								}`}
 							>
-								<GatsbyImage
-									image={image}
-									alt="Project cover photo"
-									style={{ width: "420px", height: "320px" }}
-									className={`absolute top-0 ${
-										index % 2 === 1 ? "right-0" : "left-0"
-									}`}
-								/>
+								<Link to={`/project/${project.id}`}>
+									<GatsbyImage
+										image={image}
+										alt={project.coverPhoto.description}
+										style={{
+											width: "420px",
+											height: "320px",
+										}}
+										className={`absolute top-0 ${
+											index % 2 === 1
+												? "right-0"
+												: "left-0"
+										}`}
+									/>
+								</Link>
 							</div>
 						</div>
 					);
@@ -75,14 +90,21 @@ export default function Projects({ featuredProjects, projects }) {
 					return (
 						<div key={project.id} className="w-1/3 px-1">
 							<div className="max-h-44 overflow-y-hidden">
-								<GatsbyImage
-									image={image}
-									alt="Project cover photo"
-								/>
+								<Link to={`/project/${project.id}`}>
+									<GatsbyImage
+										image={image}
+										alt={project.coverPhoto.description}
+									/>
+								</Link>
 							</div>
 							<div>
 								<h3 className="text-lg">
-									<strong>{project.title}</strong>
+									<Link
+										to={`/project/${project.id}`}
+										className="text-slate-800 no-underline"
+									>
+										<strong>{project.title}</strong>
+									</Link>
 								</h3>
 								<p className="text-slate-400 mb-0">
 									{project.publishedDate || project.createdAt}
@@ -92,6 +114,16 @@ export default function Projects({ featuredProjects, projects }) {
 								<p className="mb-0">
 									{project.excerpt.internal.content}
 								</p>
+							</div>
+							<div className="flex -ml-2">
+								{project.stack.map((item, index) => (
+									<div
+										key={`regular stack item ${index}`}
+										className="text-sm text-slate-400 mx-2"
+									>
+										{item}
+									</div>
+								))}
 							</div>
 						</div>
 					);
