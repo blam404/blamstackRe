@@ -30,16 +30,16 @@ export default function Projects({ featuredProjects, projects }) {
 					return (
 						<div
 							key={project.id}
-							className="flex flex-wrap mb-8 w-full md:w-1/2 px-1 lg:px-0 lg:w-full lg:h-80 lg:items-center relative"
+							className={`flex flex-wrap mb-8 w-full md:w-1/2 lg:w-full px-1 lg:px-0 lg:h-80 lg:items-center relative`}
 						>
 							<div
-								className={`w-full lg:w-3/5 z-10 order-2 ${infoAlign} ${
+								className={`flex flex-wrap w-full z-10 order-2 ${infoAlign} ${stackJustify} ${
 									index % 2 === 1
 										? "lg:order-1"
 										: "lg:order-2"
 								}`}
 							>
-								<h3 className="md:text-lg lg:text-xl mt-2">
+								<h3 className="w-full md:text-lg lg:text-xl mt-2">
 									<Link
 										to={`/project/${project.id}`}
 										className="text-slate-800 no-underline"
@@ -47,16 +47,16 @@ export default function Projects({ featuredProjects, projects }) {
 										<strong>{project.title}</strong>
 									</Link>
 								</h3>
-								<p className="text-sm md:text-base text-slate-400 mb-0">
+								<p className="w-full text-sm md:text-base text-slate-400 mb-0">
 									{project.publishedDate || project.createdAt}
 								</p>
-								<div className="lg:bg-blue-400 lg:px-6 lg:py-4 lg:mt-2 lg:rounded">
+								<div className="w-full lg:w-2/3 lg:bg-blue-400 lg:px-6 lg:py-4 lg:mt-2 lg:rounded">
 									<p className="mb-0">
 										{project.excerpt.internal.content}
 									</p>
 								</div>
 								<div
-									className={`flex lg:mt-2 -ml-2 ${stackMargin} ${stackJustify}`}
+									className={`w-full flex lg:mt-2 -ml-2 ${stackMargin} ${stackJustify}`}
 								>
 									{project.stack.map((item, index) => (
 										<div
@@ -69,7 +69,7 @@ export default function Projects({ featuredProjects, projects }) {
 								</div>
 								{(project.github || project.website) && (
 									<div
-										className={`flex items-center lg:mt-2 -ml-2 text-slate-400 ${stackMargin} ${stackJustify}`}
+										className={`w-full flex items-center lg:mt-2 -ml-2 text-slate-400 ${stackMargin} ${stackJustify}`}
 									>
 										{project.github && (
 											<div className="mx-2">
@@ -97,10 +97,10 @@ export default function Projects({ featuredProjects, projects }) {
 								)}
 							</div>
 							<div
-								className={`w-full lg:w-2/5 overflow-y-hidden order-1 ${
+								className={`lg:absolute lg:top-0 w-full lg:w-1/2 h-48 md:h-64 lg:h-80 order-1 ${
 									index % 2 === 1
-										? "lg:order-2"
-										: "lg:order-1"
+										? "lg:order-2 lg:right-0"
+										: "lg:order-1 lg:left-0"
 								}`}
 							>
 								<Link to={`/project/${project.id}`}>
@@ -110,11 +110,7 @@ export default function Projects({ featuredProjects, projects }) {
 										style={{
 											maxWidth: maxWidth,
 										}}
-										className={`lg:absolute lg:top-0 w-full h-48 md:h-64 lg:h-80 ${
-											index % 2 === 1
-												? "lg:right-0"
-												: "lg:left-0"
-										}`}
+										className={`lg:absolute lg:top-0 w-full h-48 md:h-64 lg:h-80`}
 									/>
 								</Link>
 							</div>
