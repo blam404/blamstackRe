@@ -16,8 +16,6 @@ export default function BlogTemplate({ pageContext }) {
 	const options = {
 		renderNode: {
 			[INLINES.HYPERLINK]: ({ content, data }) => {
-				console.log("data: ", data);
-				console.log("content: ", content);
 				return (
 					<a
 						href={data.uri}
