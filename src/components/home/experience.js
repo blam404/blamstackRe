@@ -3,23 +3,25 @@ import React from "react";
 export default function Experience() {
 	return (
 		<div className="w-4/5">
-			<div className="flex items center text-2xl mb-6">
+			<div className="flex text-lg md:text-xl lg:text-2xl mb-6">
 				<h2 className="mr-4">
 					<strong>Professional Experiences</strong>
 				</h2>
-				<hr className="w-52 border-t border-slate-800 my-3.5" />
+				<hr className="w-12 sm:w-48 md:w-60 border-t border-slate-800 my-auto" />
 			</div>
-			<div className="flex">
-				<div className="text-lg w-1/5">
+			<div className="flex flex-wrap">
+				<div className="md:text-lg lg:text-xl w-full lg:w-1/5">
 					<strong>Learnswell</strong>
 				</div>
-				<div className="w-4/5">
+				<div className="w-full lg:w-4/5">
 					<div className="mb-4">
-						<h3 className="text-xl">Junior Web Developer</h3>
-						<p className="text-base text-slate-400">
+						<h3 className="md:text-lg lg:text-xl">
+							Junior Web Developer
+						</h3>
+						<p className="text-sm md:text-base lg:text-lg text-slate-400">
 							September 2019 - January 2022
 						</p>
-						<ul>
+						<ul className="text-sm md:text-base lg:text-lg">
 							<li>
 								Implemented frontend redesign for a client's
 								custom eLearning website
@@ -36,13 +38,13 @@ export default function Experience() {
 						</ul>
 					</div>
 					<div>
-						<h3 className="text-xl">
+						<h3 className="md:text-lg lg:text-xl">
 							Quality Assurance Specialist
 						</h3>
-						<p className="text-base text-slate-400">
+						<p className="text-sm md:text-base lg:text-lg text-slate-400">
 							November 2017 - September 2019
 						</p>
-						<ul>
+						<ul className="text-sm md:text-base lg:text-lg">
 							<li>
 								Tested websites for bugs and submitted tickets
 								for devs

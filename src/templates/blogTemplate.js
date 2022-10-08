@@ -5,8 +5,11 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Layout from "../components/layout";
 
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+
 export default function BlogTemplate({ pageContext }) {
-	const { body, coverPhoto, publishedDate, title } = pageContext;
+	const { body, coverPhoto, publishedDate, title, github, website } =
+		pageContext;
 
 	const image = getImage(coverPhoto);
 
@@ -44,12 +47,38 @@ export default function BlogTemplate({ pageContext }) {
 				<div className="flex flex-wrap justify-center">
 					<div className="w-4/5 text-center">
 						<h1 className="text-4xl">{title}</h1>
-						<p className="text-slate-400 text-2xl">
+						<p className="text-slate-400 text-2xl mb-0">
 							{publishedDate}
 						</p>
+						{(github || website) && (
+							<div className="flex items-center justify-center mt-2">
+								{github && (
+									<div className="mx-2">
+										<a
+											href={github}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<FaGithub className="h-5 w-5 text-slate-400" />
+										</a>
+									</div>
+								)}
+								{website && (
+									<div className="mx-2">
+										<a
+											href={website}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<FaExternalLinkAlt className="h-4 w-4 text-slate-400" />
+										</a>
+									</div>
+								)}
+							</div>
+						)}
 					</div>
 					<div
-						className="overflow-y-hidden w-4/5"
+						className="overflow-y-hidden w-4/5 mt-4"
 						style={{ maxWidth: "768px", maxHeight: "480px" }}
 					>
 						<GatsbyImage

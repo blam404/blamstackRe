@@ -16,7 +16,7 @@ export default function HomePage(props) {
 		<Layout>
 			<div className="flex flex-wrap justify-center container mx-auto">
 				{/* INTRO */}
-				<div className="w-full min-h-screen flex justify-center items-center">
+				<div className="w-full min-h-screen flex justify-center items-center mb-8">
 					<div className="w-4/5">
 						<p className="text-xl">Hey! I'm</p>
 						<p className="text-5xl">
@@ -25,7 +25,7 @@ export default function HomePage(props) {
 						<p className="text-5xl">
 							<strong>I create things for the internet</strong>
 						</p>
-						<div className="w-1/2">
+						<div className="lg:w-1/2">
 							<p className="text-xl">
 								My focus is on the front end since I love to
 								create an engaging web experience for the user.
@@ -40,21 +40,21 @@ export default function HomePage(props) {
 				{/* ABOUT */}
 				<div
 					id="about"
-					className="w-full min-h-screen flex justify-center items-center xl:w-4/5"
+					className="w-full min-h-screen flex justify-center items-center xl:w-4/5 mb-8"
 				>
 					<About />
 				</div>
 				{/* EXPERIENCE */}
 				<div
 					id="experience"
-					className="w-full min-h-screen flex justify-center items-center xl:w-4/5"
+					className="w-full min-h-screen flex justify-center items-center xl:w-4/5 mb-8"
 				>
 					<Experience />
 				</div>
 				{/* PROJECTS */}
 				<div
 					id="projects"
-					className="w-full min-h-screen flex justify-center items-center xl:w-4/5 pt-20"
+					className="w-full min-h-screen flex justify-center items-center xl:w-4/5 lg:pt-20 mb-8"
 				>
 					<Projects
 						featuredProjects={featuredProjects}
@@ -101,6 +101,8 @@ export const pageQuery = graphql`
 						resizingBehavior: FILL
 					)
 				}
+				github
+				website
 			}
 		}
 		projects: allContentfulBlog(
@@ -128,6 +130,8 @@ export const pageQuery = graphql`
 						resizingBehavior: FILL
 					)
 				}
+				github
+				website
 			}
 		}
 		blog: allContentfulBlog(

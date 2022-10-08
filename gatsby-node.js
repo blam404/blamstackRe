@@ -2,8 +2,6 @@ const path = require("path");
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
 	const { createPage } = actions;
-
-	// Define a template for blog post
 	const blogTemplate = path.resolve("./src/templates/blogTemplate.js");
 	const blogListTemplate = path.resolve(
 		"./src/templates/blogListTemplate.js"
@@ -35,6 +33,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 								resizingBehavior: FILL
 							)
 						}
+						github
+						website
 						body {
 							raw
 							references {
@@ -108,39 +108,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 	const blog = result.data.blog.nodes;
 	const projects = result.data.projects.nodes;
 
-	// Create blog posts pages
-	// But only if there's at least one blog post found in Contentful
-	// `context` is available in the template as a prop and as a variable in GraphQL
-
-	if (blog.length > 0) {
-		blog.forEach((post) => {
-			createPage({
-				path: `/blog/${post.id}/`,
-				component: blogTemplate,
-				context: {
-					title: post.title,
-					publishedDate: post.publishedDate || post.createdAt,
-					coverPhoto: post.coverPhoto,
-					body: post.body,
-				},
-			});
-		});
-	}
-	if (projects.length > 0) {
-		projects.forEach((post) => {
-			createPage({
-				path: `/project/${post.id}/`,
-				component: blogTemplate,
-				context: {
-					title: post.title,
-					publishedDate: post.publishedDate || post.createdAt,
-					coverPhoto: post.coverPhoto,
-					body: post.body,
-				},
-			});
-		});
-	}
-
+	// create blog and project list page
 	createPage({
 		path: "/blog",
 		component: blogListTemplate,
@@ -158,4 +126,37 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 			category: "project",
 		},
 	});
+
+	// create individual pages for blog and project posts
+	if (blog.length > 0) {
+		blog.forEach((post) => {
+			createPage({
+				path: `/blog/${post.id}/`,
+				component: blogTemplate,
+				context: {
+					title: post.title,
+					publishedDate: post.publishedDate || post.createdAt,
+					coverPhoto: post.coverPhoto,
+					body: post.body,
+				},
+			});
+		});
+	}
+
+	if (projects.length > 0) {
+		projects.forEach((post) => {
+			createPage({
+				path: `/project/${post.id}/`,
+				component: blogTemplate,
+				context: {
+					title: post.title,
+					publishedDate: post.publishedDate || post.createdAt,
+					coverPhoto: post.coverPhoto,
+					body: post.body,
+					github: post.github,
+					website: post.website,
+				},
+			});
+		});
+	}
 };
