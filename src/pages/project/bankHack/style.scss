@@ -1,0 +1,67 @@
+.circle {
+	@apply rounded-full
+}
+
+.rectangle {
+	.top-10 {
+		top: 1rem;
+	}
+	.bottom-10 {
+		bottom: 1rem;
+	}
+
+	@apply py-16
+}
+
+.square {
+
+}
+
+.triangle {
+	background-color: transparent;
+	background-size: 50% 100%;
+	background-repeat: no-repeat;
+	background-position: left, right;
+
+	&.bg-black {
+		background-image:
+		linear-gradient(to bottom right, transparent 50%, black 0),
+		linear-gradient(to top right, black 50%, transparent 0);
+	}
+
+	&.bg-blue-600 {
+		background-image:
+		linear-gradient(to bottom right, transparent 50%, rgb(37 99 235) 0),
+		linear-gradient(to top right, rgb(37 99 235) 50%, transparent 0);
+	}
+
+	&.bg-green-600 {
+		background-image:
+		linear-gradient(to bottom right, transparent 50%, rgb(22 163 74) 0),
+		linear-gradient(to top right, rgb(22 163 74) 50%, transparent 0);
+	}
+
+	&.bg-orange-400 {
+		background-image:
+		linear-gradient(to bottom right, transparent 50%, rgb(251 146 60) 0),
+		linear-gradient(to top right, rgb(251 146 60) 50%, transparent 0);
+	}
+
+	&.bg-purple-800 {
+		background-image:
+		linear-gradient(to bottom right, transparent 50%, rgb(107 33 168) 0),
+		linear-gradient(to top right, rgb(107 33 168) 50%, transparent 0);
+	}
+
+	&.bg-red-600 {
+		background-image:
+		linear-gradient(to bottom right, transparent 50%, rgb(220 38 38) 0),
+		linear-gradient(to top right, rgb(220 38 38) 50%, transparent 0);
+	}
+
+	&.bg-white {
+		background-image:
+		linear-gradient(to bottom right, transparent 50%, white 0),
+		linear-gradient(to top right, white 50%, transparent 0);
+	}
+}
