@@ -84,7 +84,7 @@ export default function BlogTemplate({ pageContext }) {
 							alt={coverPhoto.description}
 						/>
 					</div>
-					<div className="w-4/5 text-xl my-8">
+					<div className="w-4/5 my-8">
 						{body?.raw && renderRichText(body, options)}
 					</div>
 				</div>

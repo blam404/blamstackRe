@@ -52,8 +52,6 @@ const BankHack = () => {
 	const timerRef = useRef();
 
 	const handleClickOutsideInput = (event) => {
-		console.log("1: ", event.target);
-		console.log("2: ", inputMenu.current);
 		if (inputMenu.current && !inputMenu.current.contains(event.target)) {
 			toggleShowInputMenu(false);
 		}
@@ -63,7 +61,6 @@ const BankHack = () => {
 		if (timerMenu.current && !timerMenu.current.contains(event.target)) {
 			toggleShowTimerMenu(false);
 		}
-		console.log("2");
 	};
 
 	const handleClickOutsideDistractor = (event) => {
