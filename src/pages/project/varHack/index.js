@@ -7,6 +7,8 @@ import Layout from "../../../components/layout";
 
 import { FaChevronDown } from "react-icons/fa";
 
+import "../../../styles/hacks.scss";
+
 gsap.registerPlugin(TextPlugin);
 const { random } = gsap.utils;
 

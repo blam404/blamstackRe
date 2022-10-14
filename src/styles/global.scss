@@ -45,31 +45,3 @@ li {
 .disabled {
 	@apply cursor-default pointer-events-none opacity-25;
 }
-
-
-// copied over from previous site design
-// used for hack minigames
-.dropdownButton {
-	&.show {
-		@apply rounded-b-none border-b-0
-	}
-
-	@apply flex justify-center items-center w-24 bg-zinc-50 text-slate-800 text-lg border-2 border-zinc-400 rounded relative
-	
-}
-
-.dropdownMenu {
-	&.show {
-		@apply opacity-100 translate-y-0 pointer-events-auto z-10
-	}
-
-	@apply absolute flex flex-col justify-center items-center w-24 bg-zinc-50 text-slate-800 text-lg rounded-b cursor-pointer border-2 border-t-0 border-zinc-400 opacity-0 pointer-events-none -translate-y-2 transition-all
-}
-
-.dropdownItem {
-	@apply hover:bg-slate-600 hover:text-zinc-50 w-full h-full text-center
-}
-
-.disabled {
-	@apply cursor-default pointer-events-none opacity-25;
-}
