@@ -12,11 +12,12 @@ export default function PostListing({ posts, category }) {
 						key={post.id}
 						className="w-full md:w-1/2 lg:w-1/3 md:px-1 mb-8"
 					>
-						<div className="max-h-64 overflow-y-hidden">
+						<div className="max-h-60 overflow-y-hidden">
 							<Link to={`/${category}/${post.id}`}>
 								<GatsbyImage
 									image={image}
 									alt={post.coverPhoto.description}
+									className="w-full h-60 md:h-48"
 								/>
 							</Link>
 						</div>

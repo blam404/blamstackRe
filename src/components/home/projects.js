@@ -97,7 +97,7 @@ export default function Projects({ featuredProjects, projects }) {
 								)}
 							</div>
 							<div
-								className={`lg:absolute lg:top-0 w-full lg:w-1/2 h-48 md:h-64 lg:h-80 order-1 ${
+								className={`lg:absolute lg:top-0 w-full lg:w-1/2 h-60 md:h-48 lg:h-80 order-1 ${
 									index % 2 === 1
 										? "lg:order-2 lg:right-0"
 										: "lg:order-1 lg:left-0"
@@ -110,7 +110,7 @@ export default function Projects({ featuredProjects, projects }) {
 										style={{
 											maxWidth: maxWidth,
 										}}
-										className={`lg:absolute lg:top-0 w-full h-48 md:h-64 lg:h-80`}
+										className={`lg:absolute lg:top-0 w-full h-60 md:h-48 lg:h-80`}
 									/>
 								</Link>
 							</div>
