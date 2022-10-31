@@ -12,6 +12,8 @@ export default function HomePage(props) {
 	const featuredProjects = props.data.featuredProjects.nodes;
 	const projects = props.data.projects.nodes;
 
+	console.log("blog: ", blog);
+
 	return (
 		<Layout>
 			<div className="flex flex-wrap justify-center container mx-auto">
@@ -79,7 +81,7 @@ export const pageQuery = graphql`
 		featuredProjects: allContentfulBlog(
 			filter: { category: { eq: "project" }, featured: { eq: true } }
 			limit: 3
-			sort: { fields: [publishedDate, createdAt], order: DESC }
+			sort: { fields: [publishedDate, createdAt], order: [DESC, DESC] }
 		) {
 			nodes {
 				id: contentful_id
@@ -108,7 +110,7 @@ export const pageQuery = graphql`
 		projects: allContentfulBlog(
 			filter: { category: { eq: "project" }, featured: { eq: false } }
 			limit: 6
-			sort: { fields: [publishedDate, createdAt], order: DESC }
+			sort: { fields: [publishedDate, createdAt], order: [DESC, DESC] }
 		) {
 			nodes {
 				id: contentful_id
@@ -137,7 +139,7 @@ export const pageQuery = graphql`
 		blog: allContentfulBlog(
 			filter: { category: { eq: "blog" } }
 			limit: 3
-			sort: { fields: [publishedDate, createdAt], order: DESC }
+			sort: { fields: [publishedDate, createdAt], order: [DESC, DESC] }
 		) {
 			nodes {
 				id: contentful_id
